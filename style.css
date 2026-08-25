@@ -1,145 +1,380 @@
-/* This file controls how everything LOOKS.
-   Change a value, save, and refresh your browser to see what happens. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
+:root {
+  --bg: #0e1013;
+  --text: #f5f3f7;
+  --muted: rgba(245, 243, 247, 0.72);
+  --accent: #a24b48;
+  --line: rgba(245, 243, 247, 0.28);
+  --soft: rgba(245, 243, 247, 0.09);
+  --font: "Manrope", sans-serif;
+}
 
-/* Load a font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=TASA+Explorer:wght@400..800&display=swap');
+* {
+  box-sizing: border-box;
+}
 
-
-/* Rules for the whole page */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: left;
-  text-indent: 12px;
-  letter-spacing: 0.1em;
-  line-height: 2em;
-  background: #E0E7FF;   /* page background color — try changing this! */
-  color: #333333;        /* text color */
+  margin: 0;
+  font-family: var(--font);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(162, 75, 72, 0.14), transparent 26%),
+    radial-gradient(circle at 80% 20%, rgba(162, 75, 72, 0.08), transparent 20%),
+    var(--bg);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page {
+  width: min(1198px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 74px 0 80px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero {
+  padding-top: 8px;
+  min-height: 520px;
+  text-align: center;
+}
+
+.hero h1,
+.about h2,
+.services h2 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+}
+
+.hero span,
+.about h2 span,
+.services h2 span,
+.accent {
+  color: var(--accent);
+}
+
+.hero span {
+  display: block;
+}
+
+.divider {
+  margin: 62px 0 70px;
+  opacity: 0.8;
+}
+
+.divider.bottom {
+  margin-top: 62px;
+  margin-bottom: 0;
+}
+
+.divider img {
+  width: 100%;
+  height: 1px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr) minmax(0, 0.8fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.about-copy {
+  padding-top: 14px;
+}
+
+.about h2,
+.services h2 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  margin-bottom: 22px;
+}
+
+.about-copy p,
+.about-side p,
+.services-intro,
+.service-body p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
   margin: 0;
 }
 
-
-/* Headings */
-
-h1 {
-  font-family: "Manrope", sans-serif;
-  font-size: 36;
-  font-weight: 800;
-  color: #1D1F50;
+.about-copy p + p,
+.about-side p + p {
+  margin-top: 18px;
 }
 
-h2 {
-  font-family: "Manrope", sans-serif;
-  font-size: 28;
-  font-weight: 700;
-  color: #1D1F50;
+.polaroid {
+  position: relative;
+  min-height: 520px;
+  margin-top: -18px;
 }
 
-h3 {
-  font-family: "Manrope", sans-serif;
-  font-size: 24;
-  font-weight: 600;
-  color: #1D1F50;
+.tape {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 63px;
+  transform: translateX(-50%) rotate(-9deg);
+  z-index: 4;
 }
 
-
-/* Links */
-
-a {
-  color: #FF4343;        /* the accent color */
+.polaroid-card {
+  position: absolute;
+  inset: 56px 18px 0 10px;
+  border-radius: 12px;
+  background: #e8e0db;
+  transform: rotate(-5.8deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-
-/* The bar at the top */
-
-header {
-  max-width: 640px;
-  margin: auto;
-  padding: 20px;
-  font-weight: 700;
+.portrait-bg {
+  position: absolute;
+  inset: 20px 16px 62px 16px;
+  object-fit: cover;
+  width: calc(100% - 32px);
+  height: calc(100% - 82px);
+  border-radius: 10px;
 }
 
-.header-text {
-  color: #1D1F50;
-  text-decoration: none;
+.portrait-photo {
+  position: absolute;
+  left: 50%;
+  top: 112px;
+  width: 72%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-
-/* The white box that holds your content */
-
-main {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px 40px 40px 40px;
-  background: #ffffff;
-  border-radius: 8px;
+.accent-blob {
+  position: absolute;
+  left: -10px;
+  top: 70px;
+  width: 92px;
 }
 
-
-/* Pictures never overflow the box */
-
-main img {
-  max-width: 100%;
-  border-radius: 4px;
+.ornament {
+  position: absolute;
+  z-index: 3;
 }
 
-.image-caption {
-  font-style: italic;
-  opacity: 0.6;
+.star-outline {
+  right: 26px;
+  bottom: 22px;
+  width: 56px;
 }
-
-.date {
-  opacity: 0.6;
-}
-
-
-/* Quotes */
-
-blockquote {
-  border-left: 4px solid #FF4343;
-  margin-left: 0;
-  padding-left: 16px;
-  font-size: 120%;
-}
-
-
-/* The footer at the bottom */
-
-footer {
-  max-width: 640px;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
-  font-size: 80%;
-}
-
-
-/* The beating heart */
 
 .heart {
-  color: #FF4343;
-  animation: beat 1s infinite;
+  left: 30px;
+  bottom: 34px;
+  width: 28px;
 }
 
-@keyframes beat {
-  50% { opacity: 0.5; }
+.label-grid {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 22px;
+  display: grid;
+  gap: 10px;
+  font-size: 0.68rem;
+  color: #0e1013;
 }
 
+.label-grid div {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 10px;
+}
 
-/* Anything below this only applies to small screens (phones) */
+.label-grid dt {
+  font-weight: 600;
+}
 
-@media only screen and (max-width: 600px) {
+.label-grid dd {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
 
-  body {
-    background: #ffffff;
+.about-side {
+  padding-top: 78px;
+}
+
+.about-side .accent {
+  margin-top: 20px;
+}
+
+.services {
+  padding-top: 30px;
+}
+
+.services-intro {
+  width: min(470px, 100%);
+  margin-bottom: 24px;
+}
+
+.service-list {
+  display: grid;
+  gap: 28px;
+  width: min(540px, 100%);
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(162, 75, 72, 0.45);
+}
+
+.service:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.service-index {
+  font-size: 1.9rem;
+  color: var(--accent);
+  line-height: 1;
+  padding-top: 10px;
+}
+
+.service-body {
+  border-left: 1px solid rgba(162, 75, 72, 0.45);
+  padding-left: 16px;
+}
+
+.service-body h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.star {
+  position: absolute;
+  width: 38px;
+  opacity: 0.8;
+  transform-origin: center;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+
+.star-left {
+  top: 46px;
+  left: 114px;
+  animation-delay: 0s;
+}
+
+.star-right {
+  top: 122px;
+  right: 104px;
+  animation-delay: -1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1);
   }
 
-  main {
-    padding: 10px 5% 40px 5%;
-    border-radius: 0;
+  50% {
+    transform: scale(1.42);
+  }
+}
+
+@media (max-width: 1100px) {
+  .page {
+    width: min(100vw - 32px, 1198px);
+    padding-top: 56px;
   }
 
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-side {
+    padding-top: 0;
+    max-width: 560px;
+  }
+
+  .polaroid {
+    order: -1;
+    max-width: 420px;
+    margin: 0 auto 10px;
+  }
+
+  .star-left {
+    left: 40px;
+  }
+
+  .star-right {
+    right: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100vw - 24px, 1198px);
+    padding-top: 40px;
+  }
+
+  .hero h1,
+  .about h2,
+  .services h2 {
+    line-height: 1.02;
+  }
+
+  .divider {
+    margin: 34px 0 38px;
+  }
+
+  .about h2,
+  .services h2 {
+    font-size: clamp(1.9rem, 12vw, 2.8rem);
+  }
+
+  .about-copy p,
+  .about-side p,
+  .services-intro,
+  .service-body p {
+    font-size: 0.95rem;
+  }
+
+  .polaroid {
+    min-height: 380px;
+    transform: scale(0.94);
+    transform-origin: top center;
+    margin-bottom: -8px;
+  }
+
+  .service {
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+  }
+
+  .service-index {
+    font-size: 1.5rem;
+  }
+
+  .star {
+    width: 24px;
+  }
 }
