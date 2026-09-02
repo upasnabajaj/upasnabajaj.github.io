@@ -7,7 +7,7 @@
   --accent: #a24b48;
   --line: rgba(245, 243, 247, 0.28);
   --soft: rgba(245, 243, 247, 0.09);
-  --font: "Manrope", sans-serif;
+  --font: "Marhey", sans-serif;
 }
 
 * {
@@ -100,7 +100,7 @@ img {
 }
 
 .interactive-solve .solve-word {
-  position: static;
+  position: absolute;
   inset: auto !important;
   color: #fce3ca !important;
   font-family: "Marhey", var(--font);
