@@ -34,11 +34,11 @@ img {
 }
 
 .page {
-  width: min(1198px, calc(100vw - 48px));
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   position: relative;
-  min-height: 620px;
+  min-height: 0;
 }
 
 .figma-preview {
@@ -50,14 +50,87 @@ img {
 }
 
 .hero {
-  position: absolute;
-  inset: 0 0 auto;
-  height: 620px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 590 / 328;
   padding: 0;
   text-align: left;
   overflow: hidden;
   z-index: 2;
   background: var(--bg);
+}
+
+.hero-reference {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.hero-interaction-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.legacy-hero-scene {
+  display: none;
+}
+
+.interactive-solve {
+  position: absolute;
+  top: 55.5%;
+  left: 27.2%;
+  width: 34%;
+  height: 21%;
+  display: grid;
+  place-items: center;
+  background: rgba(157, 70, 67, 0.97);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+}
+
+.interactive-solve .solve-word {
+  position: static;
+  inset: auto !important;
+  color: #fce3ca !important;
+  font-family: "Marhey", var(--font);
+  font-size: clamp(2rem, 7vw, 4.2rem) !important;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.hero-interaction-layer .hero-note {
+  position: absolute;
+  top: 65.5%;
+  right: 17.5%;
+  width: 11%;
+  height: 16%;
+  padding: 0;
+  border: 0;
+  background: rgba(173, 132, 90, 0.92);
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: 50% 10%;
+}
+
+.hero-interaction-layer .hero-note span {
+  position: absolute;
+  inset: 20% 8% auto;
+  color: #2a2420;
+  font-size: clamp(.34rem, 1.2vw, .7rem);
+  font-weight: 800;
+  line-height: 1.1;
+  transform: rotate(-2deg);
+}
+
+.hero-interaction-layer .hero-note.is-flipped {
+  animation: paper-flip 560ms ease-in-out both;
+}
+
+.hero::after {
+  display: none;
 }
 
 .hero::after {
@@ -578,8 +651,7 @@ img {
 
 @media (max-width: 1100px) {
   .page {
-    width: min(100vw - 32px, 1198px);
-    padding-top: 56px;
+    width: 100%;
   }
 
   .about {
@@ -607,10 +679,7 @@ img {
 }
 
 @media (max-width: 720px) {
-  .page {
-    width: min(100vw - 24px, 1198px);
-    padding-top: 40px;
-  }
+  .page { width: 100%; }
 
   .hero h1,
   .about h2,
@@ -655,39 +724,6 @@ img {
   }
 }
 
-@media (max-width: 1100px) {
-  .page {
-    width: 100%;
-    padding-top: 620px;
-  }
-}
-
 @media (max-width: 720px) {
-  .hero,
-  .page {
-    height: 480px;
-    min-height: 480px;
-  }
-
-  .page {
-    padding-top: 480px;
-  }
-
-  .figma-preview {
-    clip-path: inset(480px 0 0);
-  }
-
-  .hello-scrap { top: 42px; left: 4%; width: 130px; }
-  .hello-scrap strong { font-size: .7rem; }
-  .signature { top: 65px; left: 38%; font-size: .52rem; }
-  .designer-title { top: 120px; left: 7%; font-size: 3.1rem; }
-  .solves-scrap { top: 205px; left: 10%; width: 220px; height: 85px; }
-  .solve-word { font-size: 2rem !important; }
-  .hero-polaroid { top: 122px; right: 3%; width: 125px; }
-  .hero-flower { top: 235px; right: -5%; width: 100px; }
-  .hero-smiley { top: 195px; right: 25%; width: 92px; }
-  .hero-note { top: 286px; right: 10%; width: 108px; height: 98px; }
-  .hero-note span { font-size: .42rem; }
-  .hero-stars { top: 340px; left: 8%; width: 90px; }
-  .designer-caption { top: 380px; left: 12%; font-size: .5rem; }
+  .hero { aspect-ratio: 590 / 328; }
 }
