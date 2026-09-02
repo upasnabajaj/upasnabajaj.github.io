@@ -50,8 +50,124 @@ img {
   z-index: 0;
 }
 
-.page > :not(.figma-preview):not(.hero):not(.contact-hit) {
+.page > :not(.figma-preview):not(.scroll-doodle):not(.hero):not(.contact-hit):not(.cream-board-words) {
   display: none;
+}
+
+.scroll-doodle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.scroll-doodle-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 12 2 12;
+  opacity: .58;
+}
+
+.scroll-doodle-mask-path {
+  fill: none;
+  stroke: white;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scroll-doodle-arrow {
+  fill: var(--accent);
+  opacity: .7;
+  display: none;
+}
+
+.cream-board-words {
+  position: absolute;
+  top: calc(100vw * 2856 / 1440);
+  left: calc(100vw * 284 / 1440);
+  width: calc(100vw * 988 / 1440);
+  height: calc(100vw * 327 / 1440);
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.board-word {
+  position: absolute;
+  color: var(--accent);
+  font-family: "Marhey", var(--font);
+  font-size: clamp(.7rem, 1.65vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.board-word-music { top: 25%; left: 12%; transform: rotate(-16deg); }
+.board-word-travel { top: 17%; left: 40%; transform: rotate(11deg); }
+.board-word-illustration { top: 70%; left: 25%; transform: rotate(-5deg); }
+.board-word-dance { top: 68%; left: 57%; transform: rotate(-13deg); }
+.board-word-problem { top: 31%; right: 8%; transform: rotate(-8deg); }
+.board-word-photography { top: 73%; right: 5%; transform: rotate(7deg); }
+
+.board-doodles {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  color: #8b735b;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.doodle-star {
+  position: absolute;
+  font-family: Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.75rem);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.doodle-star-one { top: 24%; left: 29%; transform: rotate(-16deg); }
+.doodle-star-two { top: 53%; left: 11%; transform: rotate(11deg); }
+.doodle-star-three { top: 75%; left: 73%; transform: rotate(-8deg); }
+
+.doodle-line {
+  position: absolute;
+  display: block;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .8;
+}
+
+.doodle-line-one { top: 37%; left: 16%; width: 7%; transform: rotate(-8deg); }
+.doodle-line-two { top: 58%; right: 18%; width: 9%; transform: rotate(12deg); }
+.doodle-line-three { top: 82%; left: 39%; width: 6%; transform: rotate(-13deg); }
+
+.scratch-surface {
+  position: absolute;
+  top: 14%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 86%;
+  z-index: 6;
+  pointer-events: auto;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .contact-hit {
