@@ -92,11 +92,20 @@ img {
   top: 55.5%;
   left: 27.2%;
   width: 34%;
-  height: 21%;
+  height: 18%;
   display: grid;
   place-items: center;
   transform-origin: 50% 50%;
   pointer-events: none;
+}
+
+.interactive-paper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
 }
 
 .interactive-solve .solve-word {
@@ -110,6 +119,7 @@ img {
   white-space: nowrap;
   position: relative;
   top: 6px;
+  z-index: 1;
 }
 
 .interactive-solve .solve-word.is-changing {
