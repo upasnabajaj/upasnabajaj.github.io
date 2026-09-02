@@ -20,6 +20,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--font);
   background:
     radial-gradient(circle at 20% 10%, rgba(162, 75, 72, 0.14), transparent 26%),
@@ -1005,6 +1006,13 @@ body.light-mode .contact-hit:focus-visible {
 
 @media (max-width: 720px) {
   .page { width: 100%; }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 7px 10px;
+    font-size: .62rem;
+  }
 
   .hero h1,
   .about h2,
