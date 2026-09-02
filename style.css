@@ -95,7 +95,6 @@ img {
   height: 21%;
   display: grid;
   place-items: center;
-  background: url("assets/scraps/red-paper-blank.png") center / 100% 100% no-repeat;
   transform-origin: 50% 50%;
   pointer-events: none;
 }
