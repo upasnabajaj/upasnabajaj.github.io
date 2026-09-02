@@ -59,7 +59,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vw * 1183 / 2497);
+  height: calc(100vw * 767 / 1440);
   padding: 0;
   text-align: left;
   overflow: hidden;
@@ -746,5 +746,5 @@ img {
 }
 
 @media (max-width: 720px) {
-  .hero { height: calc(100vw * 1183 / 2497); }
+  .hero { height: calc(100vw * 767 / 1440); }
 }
