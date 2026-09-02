@@ -89,10 +89,10 @@ img {
 
 .interactive-solve {
   position: absolute;
-  top: 20%;
+  top: 55.5%;
   left: 27.2%;
   width: 34%;
-  height: 18%;
+  height: 21%;
   display: grid;
   place-items: center;
   transform-origin: 50% 50%;
