@@ -1,6 +1,6 @@
 const hero = document.querySelector('.hero');
-const solveWord = document.querySelector('.interactive-solve .solve-word');
-const note = document.querySelector('.hero-note');
+const solveWord = document.querySelector('.fixed-solve-word');
+const note = document.querySelector('.interactive-note');
 const scrollPath = document.querySelector('.hero-scroll-path');
 
 if (solveWord) {

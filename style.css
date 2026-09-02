@@ -50,8 +50,37 @@ img {
   z-index: 0;
 }
 
-.page > :not(.figma-preview):not(.hero) {
+.page > :not(.figma-preview):not(.hero):not(.contact-hit) {
   display: none;
+}
+
+.contact-hit {
+  position: absolute;
+  z-index: 4;
+  cursor: pointer;
+  background: transparent;
+  outline: 1px solid transparent;
+  transition: background-color 160ms ease, outline-color 160ms ease;
+}
+
+.contact-hit:hover,
+.contact-hit:focus-visible {
+  background: rgba(0, 0, 0, 0.14);
+  outline-color: rgba(245, 243, 247, 0.18);
+}
+
+.contact-email {
+  top: calc(100vw * 2665 / 1440);
+  left: calc(100vw * 263 / 1440);
+  width: calc(100vw * 252 / 1440);
+  height: calc(100vw * 84 / 1440);
+}
+
+.contact-linkedin {
+  top: calc(100vw * 2666 / 1440);
+  left: calc(100vw * 652 / 1440);
+  width: calc(100vw * 251 / 1440);
+  height: calc(100vw * 82 / 1440);
 }
 
 .hero {
@@ -81,6 +110,88 @@ img {
   inset: 0;
   z-index: 3;
   pointer-events: none;
+}
+
+.fixed-word-scrap {
+  position: absolute;
+  top: 54.1%;
+  left: 24.4%;
+  width: 38.1%;
+  height: 30%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.fixed-word-scrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.fixed-solve-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fce3ca;
+  font-family: "Marhey", var(--font);
+  font-weight: 600;
+  font-size: clamp(2.75rem, 7.5vw, 6rem);
+  line-height: .9;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.fixed-solve-word.is-changing {
+  animation: fixed-word-replace 700ms cubic-bezier(.2,.8,.25,1) both;
+}
+
+.interactive-note {
+  position: absolute;
+  top: 68.3%;
+  right: 12.6%;
+  width: 14.2%;
+  height: 19.2%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 4;
+  transform-origin: 50% 8%;
+}
+
+.interactive-note span {
+  position: absolute;
+  inset: 24% 8% auto;
+  display: none;
+  color: #2a2420;
+  font-family: var(--font);
+  font-size: clamp(.45rem, 1.25vw, .75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  transform: rotate(-2deg);
+}
+
+.interactive-note[aria-pressed="true"] {
+  background: url("assets/scraps/design-is-all-around-note.png") center / 100% 100% no-repeat;
+  animation: note-lift 560ms ease-in-out both;
+}
+
+.interactive-note[aria-pressed="true"] span {
+  display: none;
+}
+
+@keyframes note-lift {
+  0% { transform: translateY(0) rotate(0) scale(1); }
+  45% { transform: translateY(-6px) rotate(-1deg) scale(1.02); }
+  100% { transform: translateY(0) rotate(0) scale(1); }
+}
+
+@keyframes fixed-word-replace {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  45% { opacity: 0; transform: translate(-50%, -50%) scale(.94); }
+  70% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
 .legacy-hero-scene {
@@ -680,6 +791,7 @@ img {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
   }
+
 }
 
 @media (max-width: 1100px) {
