@@ -34,21 +34,15 @@ img {
 }
 
 .page {
-  width: 100%;
+  width: min(1198px, calc(100vw - 48px));
   margin: 0 auto;
-  padding: 620px 0 0;
+  padding: 0;
   position: relative;
-  min-height: 3332px;
+  min-height: 620px;
 }
 
 .figma-preview {
-  display: block;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: auto;
-  z-index: 0;
-  clip-path: inset(620px 0 0);
+  display: none;
 }
 
 .page > :not(.figma-preview):not(.hero) {
@@ -163,6 +157,11 @@ img {
   width: 380px;
   height: 140px;
   animation-delay: 650ms;
+  transform-origin: 50% 50%;
+}
+
+.solves-scrap.is-replacing {
+  animation: paper-replace 760ms cubic-bezier(.2,.8,.25,1) both;
 }
 
 .solve-word {
@@ -543,6 +542,38 @@ img {
   0% { transform: rotateY(0) translateY(0); }
   50% { transform: rotateY(12deg) translateY(-6px); }
   100% { transform: rotateY(0) translateY(0); }
+}
+
+@keyframes paper-replace {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0) scale(1);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translate3d(0, 8px, 0) rotate(-2deg) scale(.96);
+  }
+
+  58% {
+    opacity: 1;
+    transform: translate3d(0, -5px, 0) rotate(2deg) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-piece,
+  .hero::after,
+  .solves-scrap.is-replacing,
+  .hero-note.is-flipped {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 @media (max-width: 1100px) {

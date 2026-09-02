@@ -6,15 +6,16 @@ const scrollPath = document.querySelector('.hero-scroll-path');
 if (solveWord) {
   const words = ['SOLVES', 'EXPLORES', 'CREATES', 'MAKES'];
   let wordIndex = 0;
+  const solvesScrap = solveWord.closest('.solves-scrap');
 
   window.setInterval(() => {
     wordIndex = (wordIndex + 1) % words.length;
-    solveWord.animate([
-      { opacity: 1, transform: 'translateY(0) scale(1)' },
-      { opacity: 0, transform: 'translateY(8px) scale(.94)' },
-      { opacity: 1, transform: 'translateY(0) scale(1)' }
-    ], { duration: 620, easing: 'cubic-bezier(.2,.8,.25,1)' });
-    window.setTimeout(() => { solveWord.textContent = words[wordIndex]; }, 250);
+    if (!solvesScrap) return;
+
+    solvesScrap.classList.remove('is-replacing');
+    void solvesScrap.offsetWidth;
+    solvesScrap.classList.add('is-replacing');
+    window.setTimeout(() => { solveWord.textContent = words[wordIndex]; }, 320);
   }, 3600);
 }
 
