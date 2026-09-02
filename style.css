@@ -28,6 +28,64 @@ body {
   color: var(--text);
 }
 
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  padding: 8px 12px;
+  border: 1px solid rgba(245, 243, 247, .3);
+  border-radius: 999px;
+  background: rgba(14, 16, 19, .72);
+  color: var(--text);
+  font: 600 .72rem/1 var(--font);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: rgba(0, 0, 0, .18);
+}
+
+body.light-mode {
+  --bg: #f5eadc;
+  --text: #211b1b;
+  --muted: rgba(33, 27, 27, .72);
+  --line: rgba(33, 27, 27, .28);
+  background: var(--bg);
+}
+
+body.light-mode .figma-preview {
+  mix-blend-mode: normal;
+}
+
+body.light-mode .board-word,
+body.light-mode .scratch-instruction,
+body.light-mode .hero-piece,
+body.light-mode .about,
+body.light-mode .services {
+  color: #000;
+}
+
+body.light-mode .board-word {
+  color: #fce3ca;
+}
+
+body.light-mode .board-doodles {
+  color: #b9aa9a;
+}
+
+body.light-mode .fixed-solve-word {
+  color: #08090e;
+}
+
+body.light-mode .theme-toggle {
+  border-color: rgba(33, 27, 27, .28);
+  background: rgba(245, 234, 220, .82);
+  color: var(--text);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -183,6 +241,12 @@ img {
 .contact-hit:focus-visible {
   background: rgba(0, 0, 0, 0.14);
   outline-color: rgba(245, 243, 247, 0.18);
+}
+
+body.light-mode .contact-hit:hover,
+body.light-mode .contact-hit:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline-color: rgba(32, 32, 32, 0.18);
 }
 
 .contact-email {

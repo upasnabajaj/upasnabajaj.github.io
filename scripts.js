@@ -6,6 +6,38 @@ const pageDoodle = document.querySelector('.scroll-doodle');
 const pageDoodlePath = document.querySelector('.scroll-doodle-path');
 const pageDoodleMaskPath = document.querySelector('.scroll-doodle-mask-path');
 const pageDoodleArrow = document.querySelector('.scroll-doodle-arrow');
+const themeToggle = document.querySelector('.theme-toggle');
+const artworkPreview = document.querySelector('.figma-preview');
+
+if (themeToggle) {
+  const savedTheme = window.localStorage.getItem('theme');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
+  const originalArtworkSrc = artworkPreview?.src;
+  const lightArtworkSrc = 'assets/figma-full/website-light.png';
+
+  const setTheme = (isLight) => {
+    document.body.classList.toggle('light-mode', isLight);
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+    themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    themeToggle.querySelector('.theme-toggle-label').textContent = isLight ? 'Dark mode' : 'Light mode';
+    window.dispatchEvent(new Event('themechange'));
+    if (isLight) {
+      if (artworkPreview) artworkPreview.src = lightArtworkSrc;
+    } else if (artworkPreview && originalArtworkSrc) {
+      artworkPreview.src = originalArtworkSrc;
+    }
+  };
+
+  setTheme(savedTheme ? savedTheme === 'light' : systemTheme.matches);
+  systemTheme.addEventListener('change', (event) => {
+    if (!window.localStorage.getItem('theme')) setTheme(event.matches);
+  });
+  themeToggle.addEventListener('click', () => {
+    const isLight = !document.body.classList.contains('light-mode');
+    setTheme(isLight);
+    window.localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
 
 if (solveWord) {
   const words = ['Solves', 'Explores', 'Creates', 'Builds'];
@@ -95,7 +127,7 @@ if (scratchSurface) {
       scratchSurface.height = Math.round(rect.height * ratio);
       scratchContext.setTransform(ratio, 0, 0, ratio, 0, 0);
       scratchContext.globalCompositeOperation = 'source-over';
-      scratchContext.fillStyle = '#fce3ca';
+      scratchContext.fillStyle = document.body.classList.contains('light-mode') ? '#202020' : '#fce3ca';
       scratchContext.fillRect(0, 0, rect.width, rect.height);
     };
 
@@ -145,6 +177,7 @@ if (scratchSurface) {
     scratchSurface.addEventListener('pointercancel', stopScratching);
     scratchSurface.addEventListener('contextmenu', (event) => event.preventDefault());
     window.addEventListener('resize', resizeScratchSurface);
+    window.addEventListener('themechange', resizeScratchSurface);
     window.addEventListener('load', resizeScratchSurface, { once: true });
     window.requestAnimationFrame(resizeScratchSurface);
   }
