@@ -1,4 +1,5 @@
 const hero = document.querySelector('.hero');
+const isMobileLayout = window.matchMedia('(max-width: 900px)').matches;
 const solveWord = document.querySelector('.fixed-solve-word');
 const note = document.querySelector('.interactive-note');
 const scrollPath = document.querySelector('.hero-scroll-path');
@@ -40,7 +41,7 @@ if (themeToggle) {
 }
 
 if (solveWord) {
-  const words = ['Solves', 'Explores', 'Creates', 'Builds'];
+  const words = ['Solves', 'Explores', 'Creates', 'Makes'];
   let wordIndex = 0;
 
   window.setInterval(() => {
@@ -78,6 +79,12 @@ if (hero && scrollPath) {
 }
 
 if (pageDoodle && pageDoodlePath && pageDoodleMaskPath && pageDoodleArrow) {
+  const mobileDoodlePath = 'M22 235 C112 305 292 360 346 470 C365 510 350 545 305 570 C220 618 72 640 28 760 C3 830 48 890 126 915 C208 942 316 950 346 1060 C370 1150 320 1215 246 1240 C170 1265 63 1275 29 1390 C4 1475 52 1538 132 1565 C217 1594 319 1597 343 1708 C365 1810 307 1864 228 1886 C150 1908 64 1920 30 2035 C7 2110 56 2178 131 2208 C210 2240 304 2252 337 2345 C360 2415 318 2478 258 2500 C205 2520 155 2535 128 2606';
+  if (isMobileLayout) {
+    pageDoodle.setAttribute('viewBox', '0 0 375 2871');
+    pageDoodlePath.setAttribute('d', mobileDoodlePath);
+    pageDoodleMaskPath.setAttribute('d', mobileDoodlePath);
+  }
   const pathLength = pageDoodlePath.getTotalLength();
   const finishProgress = 0.86;
   pageDoodleMaskPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
@@ -93,7 +100,7 @@ if (pageDoodle && pageDoodlePath && pageDoodleMaskPath && pageDoodleArrow) {
     pageDoodleMaskPath.style.strokeDashoffset = pathLength - drawnLength;
 
     if (progress === 0 || progress >= 1) {
-      pageDoodle.style.opacity = progress >= 1 ? '0' : '1';
+      pageDoodle.style.opacity = '0';
       pageDoodleArrow.style.display = 'none';
       return;
     }
@@ -111,7 +118,7 @@ if (pageDoodle && pageDoodlePath && pageDoodleMaskPath && pageDoodleArrow) {
   updatePageDoodle();
 }
 
-const scratchSurface = document.querySelector('.scratch-surface');
+const scratchSurface = document.querySelector(isMobileLayout ? '.mobile-scratch-surface' : '.scratch-surface');
 
 if (scratchSurface) {
   const scratchContext = scratchSurface.getContext('2d', { willReadFrequently: true });
