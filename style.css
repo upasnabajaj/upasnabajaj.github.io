@@ -143,6 +143,11 @@ img {
   font-size: clamp(2rem, 7vw, 4.2rem) !important;
   line-height: 1;
   letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.interactive-solve .solve-word.is-changing {
+  animation: word-replace 700ms cubic-bezier(.2,.8,.25,1) both;
 }
 
 .hero-interaction-layer .hero-note {
@@ -683,6 +688,13 @@ img {
   }
 }
 
+@keyframes word-replace {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  45% { opacity: 0; transform: translateY(6px) scale(.94); }
+  70% { opacity: 1; transform: translateY(-3px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @keyframes about-strap-unroll {
   0% { transform: scaleY(.18) rotate(-2deg); }
   72% { transform: scaleY(1.04) rotate(1deg); }
@@ -699,6 +711,7 @@ img {
   .hero-piece,
   .hero::after,
   .solves-scrap.is-replacing,
+  .interactive-solve .solve-word.is-changing,
   .hero-note.is-flipped,
   .about-assembly.is-active .about-cover,
   .about-assembly.is-active .about-strap {

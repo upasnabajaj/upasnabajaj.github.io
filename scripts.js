@@ -1,22 +1,19 @@
 const hero = document.querySelector('.hero');
-const solveWord = document.querySelector('.solve-word');
+const solveWord = document.querySelector('.interactive-solve .solve-word');
 const note = document.querySelector('.hero-note');
 const scrollPath = document.querySelector('.hero-scroll-path');
 const aboutAssembly = document.querySelector('.about-assembly');
 
 if (solveWord) {
-  const words = ['SOLVES', 'EXPLORES', 'CREATES', 'MAKES'];
+  const words = ['SOLVES', 'EXPLORES', 'CREATES', 'BUILDS'];
   let wordIndex = 0;
-  const solvesScrap = solveWord.closest('.solves-scrap');
 
   window.setInterval(() => {
     wordIndex = (wordIndex + 1) % words.length;
-    if (!solvesScrap) return;
-
-    solvesScrap.classList.remove('is-replacing');
-    void solvesScrap.offsetWidth;
-    solvesScrap.classList.add('is-replacing');
-    window.setTimeout(() => { solveWord.textContent = words[wordIndex]; }, 320);
+    solveWord.classList.remove('is-changing');
+    void solveWord.offsetWidth;
+    solveWord.classList.add('is-changing');
+    window.setTimeout(() => { solveWord.textContent = words[wordIndex]; }, 260);
   }, 3600);
 }
 
