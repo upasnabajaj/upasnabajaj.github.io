@@ -4,7 +4,7 @@ const note = document.querySelector('.hero-note');
 const scrollPath = document.querySelector('.hero-scroll-path');
 
 if (solveWord) {
-  const words = ['SOLVES', 'EXPLORES', 'CREATES', 'BUILDS'];
+  const words = ['Solves', 'Explores', 'Creates', 'Builds'];
   let wordIndex = 0;
 
   window.setInterval(() => {
