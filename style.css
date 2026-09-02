@@ -50,7 +50,7 @@ img {
   z-index: 0;
 }
 
-.page > :not(.figma-preview):not(.hero):not(.about-assembly) {
+.page > :not(.figma-preview):not(.hero) {
   display: none;
 }
 
@@ -85,46 +85,6 @@ img {
 
 .legacy-hero-scene {
   display: none;
-}
-
-.about-assembly {
-  position: absolute;
-  top: 22.9%;
-  left: 0;
-  width: 100%;
-  height: 25%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.about-cover {
-  position: absolute;
-  top: 2%;
-  left: 39%;
-  width: 25%;
-  height: 36%;
-  background: #08090e;
-  clip-path: inset(0 0 0 0);
-}
-
-.about-strap {
-  position: absolute;
-  top: -1%;
-  left: 45%;
-  width: 8%;
-  height: 44%;
-  object-fit: contain;
-  transform-origin: top center;
-  transform: scaleY(.18) rotate(-2deg);
-  opacity: .9;
-}
-
-.about-assembly.is-active .about-cover {
-  animation: about-card-reveal 1500ms 420ms cubic-bezier(.2,.85,.25,1) forwards;
-}
-
-.about-assembly.is-active .about-strap {
-  animation: about-strap-unroll 650ms cubic-bezier(.2,.8,.25,1.1) forwards;
 }
 
 .interactive-solve {
@@ -699,26 +659,12 @@ img {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes about-strap-unroll {
-  0% { transform: scaleY(.18) rotate(-2deg); }
-  72% { transform: scaleY(1.04) rotate(1deg); }
-  100% { transform: scaleY(1) rotate(0); }
-}
-
-@keyframes about-card-reveal {
-  0% { clip-path: inset(0 0 0 0); transform: translateY(0); }
-  65% { clip-path: inset(0 0 100% 0); transform: translateY(5px); }
-  100% { clip-path: inset(0 0 100% 0); transform: translateY(0); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-piece,
   .hero::after,
   .solves-scrap.is-replacing,
   .interactive-solve .solve-word.is-changing,
-  .hero-note.is-flipped,
-  .about-assembly.is-active .about-cover,
-  .about-assembly.is-active .about-strap {
+  .hero-note.is-flipped {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
   }

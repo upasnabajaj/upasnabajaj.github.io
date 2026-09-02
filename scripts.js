@@ -2,7 +2,6 @@ const hero = document.querySelector('.hero');
 const solveWord = document.querySelector('.interactive-solve .solve-word');
 const note = document.querySelector('.hero-note');
 const scrollPath = document.querySelector('.hero-scroll-path');
-const aboutAssembly = document.querySelector('.about-assembly');
 
 if (solveWord) {
   const words = ['SOLVES', 'EXPLORES', 'CREATES', 'BUILDS'];
@@ -40,14 +39,4 @@ if (hero && scrollPath) {
 
   window.addEventListener('scroll', updateScrollPath, { passive: true });
   updateScrollPath();
-}
-
-if (aboutAssembly && 'IntersectionObserver' in window) {
-  const aboutObserver = new IntersectionObserver((entries, observer) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    aboutAssembly.classList.add('is-active');
-    observer.disconnect();
-  }, { threshold: 0.25 });
-
-  aboutObserver.observe(aboutAssembly);
 }
