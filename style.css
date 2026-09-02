@@ -59,7 +59,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vw * 767 / 1440);
+  height: calc(100vw * 328 / 590);
   padding: 0;
   text-align: left;
   overflow: hidden;
@@ -68,7 +68,12 @@ img {
 }
 
 .hero-reference {
-  display: none;
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .hero-interaction-layer {
@@ -796,5 +801,5 @@ img {
 }
 
 @media (max-width: 720px) {
-  .hero { height: calc(100vw * 767 / 1440); }
+  .hero { height: calc(100vw * 328 / 590); }
 }
