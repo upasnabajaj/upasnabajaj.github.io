@@ -64,7 +64,7 @@ img {
   text-align: left;
   overflow: hidden;
   z-index: 2;
-  background: var(--bg);
+  background: transparent;
 }
 
 .hero-reference {
