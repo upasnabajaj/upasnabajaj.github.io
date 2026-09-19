@@ -1166,6 +1166,10 @@ body.light-mode .contact-hit:focus-visible {
     white-space: nowrap;
   }
 
+  body.light-mode .fixed-solve-word {
+    color: #08090e !important;
+  }
+
   .interactive-note {
     display: block;
     top: calc(100vw * 337 / 375);
