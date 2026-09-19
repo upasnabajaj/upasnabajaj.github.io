@@ -1137,10 +1137,10 @@ body.light-mode .contact-hit:focus-visible {
   .fixed-word-scrap {
     display: block;
     position: absolute;
-    top: calc(100vw * 254 / 375);
-    left: calc(100vw * 118 / 375);
-    width: calc(100vw * 140 / 375);
-    height: calc(100vw * 55 / 375);
+    top: calc(100vw * 245 / 375);
+    left: calc(100vw * 90 / 375);
+    width: calc(100vw * 196 / 375);
+    height: calc(100vw * 73 / 375);
     pointer-events: none;
   }
   .fixed-word-scrap img { display: none; }
@@ -1155,7 +1155,8 @@ body.light-mode .contact-hit:focus-visible {
     height: 100%;
     color: #fce3ca !important;
     font-family: var(--font);
-    font-size: clamp(1.8rem, 9vw, 2.25rem);
+    font-size: calc(100vw * 46 / 375);
+    padding-top: .35em;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
