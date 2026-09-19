@@ -1100,6 +1100,10 @@ body.light-mode .contact-hit:focus-visible {
     display: none;
   }
 
+  body.light-mode {
+    --bg: #e4d2c0;
+  }
+
   .mobile-figma-preview {
     display: block;
     position: relative;

@@ -9,18 +9,24 @@ const pageDoodleMaskPath = document.querySelector('.scroll-doodle-mask-path');
 const pageDoodleArrow = document.querySelector('.scroll-doodle-arrow');
 const themeToggle = document.querySelector('.theme-toggle');
 const artworkPreview = document.querySelector('.figma-preview');
+const mobileArtworkPreview = document.querySelector('.mobile-figma-preview');
 
 if (themeToggle) {
   const savedTheme = window.localStorage.getItem('theme');
   const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
   const originalArtworkSrc = artworkPreview?.src;
   const lightArtworkSrc = 'assets/figma-full/website-light.png';
+  const originalMobileArtworkSrc = mobileArtworkPreview?.src;
+  const lightMobileArtworkSrc = 'assets/figma-full/website-mobile-light.png';
 
   const setTheme = (isLight) => {
     document.body.classList.toggle('light-mode', isLight);
     themeToggle.setAttribute('aria-pressed', String(isLight));
     themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
     themeToggle.querySelector('.theme-toggle-label').textContent = isLight ? 'Dark mode' : 'Light mode';
+    if (mobileArtworkPreview && originalMobileArtworkSrc) {
+      mobileArtworkPreview.src = isLight ? lightMobileArtworkSrc : originalMobileArtworkSrc;
+    }
     window.dispatchEvent(new Event('themechange'));
     if (isLight) {
       if (artworkPreview) artworkPreview.src = lightArtworkSrc;
