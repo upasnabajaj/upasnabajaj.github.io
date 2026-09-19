@@ -1137,8 +1137,8 @@ body.light-mode .contact-hit:focus-visible {
   .fixed-word-scrap {
     display: block;
     position: absolute;
-    top: calc(100vw * 242 / 375);
-    left: calc(100vw * 64 / 375);
+    top: calc(100vw * 254 / 375);
+    left: calc(100vw * 118 / 375);
     width: calc(100vw * 140 / 375);
     height: calc(100vw * 55 / 375);
     pointer-events: none;
