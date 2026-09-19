@@ -1186,5 +1186,5 @@ body.light-mode .contact-hit:focus-visible {
 
   .contact-hit { display: block; z-index: 4; pointer-events: auto; }
   .contact-email { top: calc(100vw * 2367 / 375); left: calc(100vw * 64 / 375); width: calc(100vw * 150 / 375); height: calc(100vw * 50 / 375); }
-  .contact-linkedin { top: calc(100vw * 2468 / 375); left: calc(100vw * 80 / 375); width: calc(100vw * 150 / 375); height: calc(100vw * 50 / 375); }
+  .contact-linkedin { top: calc(100vw * 2468 / 375); left: calc(100vw * 127 / 375); width: calc(100vw * 150 / 375); height: calc(100vw * 50 / 375); }
 }
