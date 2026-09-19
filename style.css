@@ -1155,7 +1155,7 @@ body.light-mode .contact-hit:focus-visible {
     height: 100%;
     color: #fce3ca !important;
     font-family: var(--font);
-    font-size: calc(100vw * 44 / 375);
+    font-size: calc(100vw * 42 / 375);
     padding-top: .35em;
     line-height: 1;
     text-align: center;
