@@ -17,7 +17,7 @@ if (themeToggle) {
   const originalArtworkSrc = artworkPreview?.src;
   const lightArtworkSrc = 'assets/figma-full/website-light.png';
   const originalMobileArtworkSrc = mobileArtworkPreview?.src;
-  const lightMobileArtworkSrc = 'assets/figma-full/website-mobile-light.png';
+  const lightMobileArtworkSrc = 'assets/figma-full/website-mobile-light.svg';
 
   const setTheme = (isLight) => {
     document.body.classList.toggle('light-mode', isLight);
