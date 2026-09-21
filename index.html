@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=mobile-scratch-doodles-1">
+  <link rel="stylesheet" href="weather-footer.css?v=1">
 </head>
 <body>
   <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
@@ -175,6 +176,33 @@
 
     <div class="divider bottom"><img src="assets/figma/divider.svg" alt="" aria-hidden="true"></div>
   </main>
+
+  <footer class="sky-footer" aria-label="Local weather">
+    <div class="sky-note" data-sky="cloud">
+      <h2>what’s the sky doing?</h2>
+      <div class="sky-content">
+        <div>
+          <time class="sky-date" data-weather="date"></time>
+          <div class="sky-weather" aria-live="polite"><span data-weather="place">finding your location</span><span data-weather="temperature">—°C</span><span data-weather="condition">checking the sky</span></div>
+          <p class="sky-message" data-weather="message">a little weather, a little inspiration.</p>
+        </div>
+        <button class="sky-doodle" type="button" aria-label="Play the weather doodle">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <g data-icon="sun"><path d="M65 44c1 21-31 24-33 3-2-22 32-23 33-3Z"/><path class="sky-rays" d="m48 13 1 12m25-5-8 10m20 14-13 1m5 26-11-9M50 81l-1-13M20 72l11-11M10 46l13 1m-5-27 12 12"/></g>
+            <g data-icon="cloud" class="sky-cloud"><path d="M25 65C3 66 9 43 26 45c-1-30 41-33 45-5 25-3 30 28 6 27Z"/><path d="m24 76 40 1"/></g>
+            <g data-icon="rain"><path class="sky-cloud" d="M24 51C4 50 13 29 29 34c0-27 39-25 41-2 25-3 27 24 4 24Z"/><path class="sky-drops" d="m28 65-5 12m25-13-6 15m27-12-5 13"/></g>
+            <g data-icon="night"><path d="M60 15C17 13 12 68 55 73c12 1 20-5 25-14-33 6-46-24-20-44Z"/><path class="sky-stars" d="m77 14 2 7 7 2-7 2-2 7-2-7-7-2 7-2Zm-57 64 2 6 6 2-6 2-2 6-2-6-6-2 6-2m57-43 5 1m-3-4 1 7"/></g>
+            <g data-icon="snow" class="sky-stars"><path d="m50 15 1 69M21 32l60 35M21 67l60-35M41 21l9 9 9-10M40 78l11-10 11 10M22 43l14-2-1-14m40 28-12 5 1 14M22 56l14 4-1 14m40-29-12-5 1-14"/></g>
+            <g data-icon="storm"><path class="sky-cloud" d="M24 50C4 50 13 29 29 34c0-27 39-25 41-2 25-3 27 24 4 24Z"/><path class="sky-drops" d="m52 58-14 17 14-2-7 19 21-25-15 2"/></g>
+          </svg>
+        </button>
+      </div>
+      <div class="sky-meta"><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">live weather · Open-Meteo ↗</a><p class="sky-status" data-weather="status" role="status"></p><button class="sky-retry" type="button" data-weather="retry">refresh my sky ↻</button></div>
+      <noscript>Enable JavaScript to see your local time and live weather.</noscript>
+    </div>
+  </footer>
+  <script src="weather-footer.js?v=1" defer></script>
+
   <script src="scripts.js?v=mobile-light-vector-1"></script>
 </body>
 </html>
